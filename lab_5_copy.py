@@ -61,12 +61,11 @@ class Fight:
     '''
         This class is Fight of Fighters
     '''
-    def __init__(self, fighter1, fighter2) -> Fighter:
-        
+    def __init__(self, fighter1, fighter2) :
+        def __init__(self, fighter1, fighter2):
+            
             self.__fighter1 = fighter1
-        
             self.__fighter2 = fighter2
-       
     def get_fighters(self):
         '''
         getter from instance
@@ -81,7 +80,7 @@ class Fight:
         #k/o code
         random_number = rnd.randint(0, 100)
         if random_number == 1:
-            fighter2.set_health(-10)
+            fighter2.set_health(0)
             print(f'\n Woooow {fighter1.get_name()} knocked out his opponent its ammazing')
         elif self.__fighter2.get_health() > 0:
             fighter2.set_health(fighter2_health)
@@ -89,6 +88,7 @@ class Fight:
                   f' {fighter1.get_atack()} points of damage and left '
                   f'{fighter2.get_health()} '
                   f'to {fighter2.get_name()}')
+            
         #delay
         t.sleep(TIME_TO_SLEEP)
         Fight.line()
@@ -143,6 +143,9 @@ if __name__ == '__main__':
     fighter5 = Fighter('Fury', 100, 20)
     fighter6 = Fighter('Joshua', 100, 20)
     test = Test()
-    saudi_arabia = Fight(test, fighter5)
+    
+    saudi_arabia = Fight(fighter4, fighter5)
+    saudi_arabia.fighter_atack(fighter4, fighter5)
     saudi_arabia.round()
-    print(type(fighter4))
+    
+    
