@@ -3,12 +3,14 @@ this module is for K/O code and delays
 '''
 import random as rnd
 import time as t
-TIME_TO_SLEEP = 1
+TIME_TO_SLEEP = 0
+class Test:
+    pass
 class Fighter:
     '''
     this cls is Fighters
     '''
-    def __init__(self, name, health, damage_per_attack):
+    def __init__(self, name: str, health: int, damage_per_attack: int):
         '''
         initializating attibutes
         '''
@@ -59,9 +61,12 @@ class Fight:
     '''
         This class is Fight of Fighters
     '''
-    def __init__(self, fighter1, fighter2):
-        self.__fighter1 = fighter1
-        self.__fighter2 = fighter2
+    def __init__(self, fighter1, fighter2) -> Fighter:
+        
+            self.__fighter1 = fighter1
+        
+            self.__fighter2 = fighter2
+       
     def get_fighters(self):
         '''
         getter from instance
@@ -137,5 +142,7 @@ if __name__ == '__main__':
     fighter4 = Fighter('Usyk', 100, 20)
     fighter5 = Fighter('Fury', 100, 20)
     fighter6 = Fighter('Joshua', 100, 20)
-    saudi_arabia = Fight(fighter4, fighter5)
+    test = Test()
+    saudi_arabia = Fight(test, fighter5)
     saudi_arabia.round()
+    print(type(fighter4))
