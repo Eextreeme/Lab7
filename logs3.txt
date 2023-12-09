@@ -1,0 +1,30 @@
+2023-12-09 10:22:07,391 - root - ERROR - <class '__main__.TooStrong'>
+Traceback (most recent call last):
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 16, in inner
+    func(*args, **kwargs)
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 32, in fighter_attack
+    raise TooStrong(max_differanace_in_attack)
+TooStrong: Your opponen has higher attack on 30 points
+2023-12-09 10:22:45,957 - root - ERROR - <class '__main__.TooStrong'>
+Traceback (most recent call last):
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 16, in inner
+    func(*args, **kwargs)
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 32, in fighter_attack
+    raise TooStrong(max_differanace_in_attack)
+TooStrong: Your opponen has higher attack on 30 points
+2023-12-09 10:23:05,114 - root - INFO - 10.0 points is ok the attack will be
+2023-12-09 10:24:10,715 - root - INFO - 10.0 points is ok the fight will be
+2023-12-09 10:30:30,270 - root - INFO - 10.0 points is ok the fight will be
+2023-12-09 10:30:30,271 - root - INFO - 50.0 points is ok the fight will be
+2023-12-09 10:31:08,461 - root - INFO - 10.0 points is ok the fight will be
+2023-12-09 10:31:08,461 - root - ERROR - <class '__main__.TooStrong'>
+Traceback (most recent call last):
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 16, in inner
+    func(*args, **kwargs)
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 43, in is_fight_can_start
+    raise TooStrong(max_differanace_in_attack)
+TooStrong: Your opponen has higher attack on 30 points
+2023-12-09 10:33:36,692 - root - INFO - 10.0 points is ok the fight will be
+2023-12-09 10:33:56,682 - root - INFO - 10.0 points is ok the fight will be
+2023-12-09 10:34:00,647 - root - INFO - 10.0 points is ok the fight will be
+2023-12-09 10:34:33,998 - root - INFO - attack 10.0 points is ok the fight will be
