@@ -8,7 +8,7 @@ class Fighter:
     '''
     this cls is Fighters
     '''
-    def __init__(self, name: str, health: int, damage_per_attack: int):
+    def __init__(self, name, health, damage_per_attack):
         '''
         initializating attibutes
         '''
@@ -24,9 +24,9 @@ class Fighter:
         '''
         getter from health and health check for < 0
         '''
-        if self.__health > 0:
-            return self.__health
-        return 0
+        '''if self.__health > 0:'''
+        return self.__health
+        '''return 0'''
     def get_atack(self):
         '''
         getter from atack
@@ -132,7 +132,7 @@ class Fight:
                 break
 
 if __name__ == '__main__':
-    fighter4 = Fighter(1, 100, 20)
+    fighter4 = Fighter('Usyk', 100, 20)
     fighter5 = Fighter('Fury', 100, 20)
     fighter6 = Fighter('Joshua', 100, 20)
     saudi_arabia = Fight(fighter4, fighter5)
