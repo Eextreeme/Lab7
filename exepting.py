@@ -53,6 +53,7 @@ class Fight(lab_5_copy.Fight):
             raise TooHealthy(max_differance_in_health)
         else:
             logging.info(f'health {math.fabs(self.__fighter1.get_health() - self.__fighter2.get_health())} points is ok the fight will be')
+@logged(HealthBeloveZero, 'console')
 class Fighter(lab_5_copy.Fighter):
     def get_health(self):
         if self.__health < 0:
@@ -73,5 +74,6 @@ if __name__ == '__main__':
     fighter5 = lab_5_copy.Fighter('Fury', 150, 30)
     fighter6 = lab_5_copy.Fighter('Joshua', 100, 65)
     saudi_arabia = Fight(fighter4, fighter5)
-    time_to_sleep_check(3)
+    fighter4.get_health()
+    
     
