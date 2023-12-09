@@ -1,12 +1,12 @@
 import logging
-import math
+import math, time
 import lab_5_copy 
 def logged(exception, logging_type):
     def outer(func):
         def inner(*args, **kwargs):
-            if logging_type == "file" :
+            if logging_type == "files" :
                 logging.basicConfig(
-                    filename="/Users/prabwa/Politech/lab_7/Lab7/logs.txt",
+                    filename="logs3.txt",
                     level=logging.DEBUG,
                     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
                     )
@@ -16,8 +16,6 @@ def logged(exception, logging_type):
                 func(*args, **kwargs)
             except exception:
                 logging.exception(exception)
-            except Exception:
-                logging.error("Unexpected Exceptions was made")
         return inner
     return outer
 class TooStrong(Exception):
@@ -25,18 +23,38 @@ class TooStrong(Exception):
         self.value = value
 
     def __str__(self):
-        return f"Your opponen has higher attack on {self.value} points"
-
+        return f"Your opponen has higher health on more than {self.value} points, the fight will be not fair "
+class TooHealthy(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return f"Your opponen has higher health on more than {self.value} points, the fight will be not fair "
+class TooHugeTIMETOSLEEP(Exception):
+    def __init__(self, value):
+        self.value = value
+    def __str__(self):
+        return f"{self.value} sec is too slow, code will be going for too much time"
 class Fight(lab_5_copy.Fight):
-    @logged(TooStrong, 'file')
-    def fighter_attack(self, max_differanace_in_attack):
-        if int(math.fabs(self.__fighter1.get_atack() - self.__fighter2.get_atack())) > max_differanace_in_attack:
+    @logged(TooStrong, 'console')
+    def is_fight_can_start(self, max_differanace_in_attack, max_differanace_in_health):
+        if int(math.fabs(self.__fighter1.get_atack() - self.__fighter2.get_atack())) >= max_differanace_in_attack:
             raise TooStrong(max_differanace_in_attack)
-       
-
+        else:
+            logging.info(f'attack {math.fabs(self.__fighter1.get_atack() - self.__fighter2.get_atack())} points is ok the fight will be')
+        if int(math.fabs(self.__fighter1.get_atack() - self.__fighter2.get_atack())) >= max_differanace_in_health:
+            raise TooHealthy(max_differanace_in_health)
+        else:
+            logging.info(f'health {math.fabs(self.__fighter1.get_health() - self.__fighter2.get_health())} points is ok the fight will be')
+@logged(TooHugeTIMETOSLEEP, 'console')
+def time_to_sleep_check(value):
+    if lab_5_copy.TIME_TO_SLEEP >= value:
+        raise TooHugeTIMETOSLEEP(value)
+    else:
+        logging.info('Code will be run ok')
 if __name__ == '__main__':
     fighter4 = lab_5_copy.Fighter('Usyk', 100, 20)
-    fighter5 = lab_5_copy.Fighter('Fury', 100, 65)
+    fighter5 = lab_5_copy.Fighter('Fury', 150, 30)
     fighter6 = lab_5_copy.Fighter('Joshua', 100, 65)
     saudi_arabia = Fight(fighter4, fighter5)
-    saudi_arabia.fighter_attack(30)
+    time_to_sleep_check(3)
+    

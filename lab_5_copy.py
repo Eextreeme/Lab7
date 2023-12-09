@@ -3,9 +3,7 @@ this module is for K/O code and delays
 '''
 import random as rnd
 import time as t
-TIME_TO_SLEEP = 0
-class Test:
-    pass
+TIME_TO_SLEEP = 3
 class Fighter:
     '''
     this cls is Fighters
@@ -48,7 +46,7 @@ class Fighter:
                 f'Name: {self.__name}, '
                 f'Health: {self.__health}, '
                 f'damage per attack: {self.__damage_per_attack}')
-        Fight.line()
+        line(60)
         t.sleep(TIME_TO_SLEEP)
         return self.get_name(), self.get_health(), self.get_atack()
     def fighter_entering_ring(self):
@@ -56,16 +54,22 @@ class Fighter:
             this fnc means entering of fighter on ring
         '''
         print(f'\nMeet {self.__name} today on ring ')
-        
+def line(value):
+        '''
+        this fnc is going line
+        '''
+        i = 0
+        while i < value:
+            print('_', end = '')
+            t.sleep(0.01)
+            i += 1        
 class Fight:
     '''
         This class is Fight of Fighters
     '''
-    def __init__(self, fighter1, fighter2) :
-        def __init__(self, fighter1, fighter2):
-            
-            self.__fighter1 = fighter1
-            self.__fighter2 = fighter2
+    def __init__(self, fighter1, fighter2):
+        self.__fighter1 = fighter1
+        self.__fighter2 = fighter2
     def get_fighters(self):
         '''
         getter from instance
@@ -80,7 +84,7 @@ class Fight:
         #k/o code
         random_number = rnd.randint(0, 100)
         if random_number == 1:
-            fighter2.set_health(0)
+            fighter2.set_health(-10)
             print(f'\n Woooow {fighter1.get_name()} knocked out his opponent its ammazing')
         elif self.__fighter2.get_health() > 0:
             fighter2.set_health(fighter2_health)
@@ -88,21 +92,10 @@ class Fight:
                   f' {fighter1.get_atack()} points of damage and left '
                   f'{fighter2.get_health()} '
                   f'to {fighter2.get_name()}')
-            
         #delay
         t.sleep(TIME_TO_SLEEP)
-        Fight.line()
+        line(60)
         t.sleep(TIME_TO_SLEEP)
-    @staticmethod
-    def line():
-        '''
-        this fnc is going line
-        '''
-        i = 0
-        while i < 60:
-            print('_', end = '')
-            t.sleep(0.01)
-            i += 1
     def countdown(self):
         '''
             this fnc means start of the round
@@ -139,13 +132,8 @@ class Fight:
                 break
 
 if __name__ == '__main__':
-    fighter4 = Fighter('Usyk', 100, 20)
+    fighter4 = Fighter(1, 100, 20)
     fighter5 = Fighter('Fury', 100, 20)
     fighter6 = Fighter('Joshua', 100, 20)
-    test = Test()
-    
     saudi_arabia = Fight(fighter4, fighter5)
-    saudi_arabia.fighter_atack(fighter4, fighter5)
     saudi_arabia.round()
-    
-    
