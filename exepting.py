@@ -22,7 +22,7 @@ def logged(exception, logging_type):
             except exception:
                 logging.exception(exception)
             except Exception:
-                logging.exception(exception)
+                logging.exception(Exception)
         return inner
     return logger
 class TooStrong(Exception):
