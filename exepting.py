@@ -6,7 +6,7 @@ import logging
 import math
 import lab_5_copy
 def logged(exception, logging_type):
-    def logger(func):
+    def outer(func):
         def inner(*args, **kwargs):
             if logging_type == 'file':
                 logging.basicConfig(
@@ -24,7 +24,7 @@ def logged(exception, logging_type):
             except Exception:
                 logging.exception(Exception)
         return inner
-    return logger
+    return outer
 class TooStrong(Exception):
     '''
     class exeption means too strong
