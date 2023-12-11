@@ -13,7 +13,7 @@ def logged(exception, logging_type):
         def inner(*args, **kwargs):
             if logging_type == "files" :
                 logging.basicConfig(
-                    filename="logs3.txt",
+                    filename="logs6.txt",
                     level=logging.DEBUG,
                     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
                     )
@@ -84,17 +84,21 @@ class Fight(lab_5_copy.Fight):
     '''
     fight
     '''
-    @logged(TooStrong, 'file')
-    def is_fight_can_start(self, max_differance_in_health, max_differance_in_attack):
+    @logged(TooStrong, 'files')
+    def is_attack_diff(self, max_differance_in_attack):
         '''
         check if fight can start 
         '''
         differance_in_attack = (self.__fighter1.get_atack() - self.__fighter2.get_atack())
-        differance_in_health = (self.__fighter1.get_health()) - self.__fighter2.get_health()
         if int(math.fabs(differance_in_attack)) >= max_differance_in_attack:
             raise TooStrong(max_differance_in_attack)
         logging.info(f'attack {math.fabs(differance_in_attack)} points is ok the fight will be')
-
+    @logged(TooHealthy, 'file')
+    def is_health_diff(self, max_differance_in_health):
+        '''
+        check if fight can start
+        '''
+        differance_in_health = (self.__fighter1.get_health()) - self.__fighter2.get_health()
         if int(math.fabs(differance_in_health)) >= max_differance_in_health:
             raise TooHealthy(max_differance_in_health)
         logging.info(f'health {math.fabs(differance_in_health)} points is ok the fight will be')
@@ -104,16 +108,16 @@ class Fighter(lab_5_copy.Fighter):
     '''
     fighter
     '''
-    @logged(HealthBeloveZero, 'file')
+    @logged(HealthBeloveZero, 'files')
     def get_health_check(self):
         '''
         health check is it below zero
         '''
         if self.__health < 0:
             raise HealthBeloveZero
-        return self.__health
+        return 'self.__health'
 
-@logged(TooHugeTIMETOSLEEP, 'file')
+@logged(TooHugeTIMETOSLEEP, 'files')
 def time_to_sleep_check(value):
     '''
     max time to sleep
@@ -123,8 +127,8 @@ def time_to_sleep_check(value):
     logging.info('Code will be run comfotly')
 
 
-fighter4 = Fighter('Usyk', 20, 20)
+fighter4 = Fighter('Usyk', -20, 20)
 fighter5 = Fighter('Fury', 50, 60)
 fighter6 = Fighter('Joshua', 100, 65)
 saudi_arabia = Fight(fighter4, fighter5)
-saudi_arabia.is_fight_can_start(20,40)
+fighter4.get_health_check()

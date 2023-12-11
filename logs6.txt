@@ -1,0 +1,14 @@
+2023-12-11 11:57:34,906 - root - ERROR - <class '__main__.HealthBeloveZero'>
+Traceback (most recent call last):
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 23, in inner
+    func(*args, **kwargs)
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 114, in get_health_check
+    raise HealthBeloveZero
+HealthBeloveZero: Health returned belove zero
+2023-12-11 12:07:57,708 - root - ERROR - <class '__main__.HealthBeloveZero'>
+Traceback (most recent call last):
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 23, in inner
+    func(*args, **kwargs)
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 117, in get_health_check
+    raise HealthBeloveZero
+HealthBeloveZero: Health returned belove zero
