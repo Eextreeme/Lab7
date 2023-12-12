@@ -13,7 +13,7 @@ def logged(exception, logging_type):
         def inner(*args, **kwargs):
             if logging_type == "files" :
                 logging.basicConfig(
-                    filename="logs6.txt",
+                    filename="logs.txt",
                     level=logging.DEBUG,
                     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
                     )
@@ -117,7 +117,7 @@ class Fighter(lab_5_copy.Fighter):
             raise HealthBeloveZero
         return 'self.__health'
 
-@logged(TooHugeTIMETOSLEEP, 'files')
+@logged(TooHugeTIMETOSLEEP, 'console')
 def time_to_sleep_check(value):
     '''
     max time to sleep
@@ -131,4 +131,5 @@ fighter4 = Fighter('Usyk', -20, 20)
 fighter5 = Fighter('Fury', 50, 60)
 fighter6 = Fighter('Joshua', 100, 65)
 saudi_arabia = Fight(fighter4, fighter5)
+time_to_sleep_check(2)
 fighter4.get_health_check()
