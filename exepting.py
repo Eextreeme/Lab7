@@ -11,9 +11,9 @@ def logged(exception, logging_type):
     '''
     def outer(func):
         def inner(*args, **kwargs):
-            if logging_type == "files" :
+            if logging_type == "file" :
                 logging.basicConfig(
-                    filename="logs.txt",
+                    filename="log.txt",
                     level=logging.DEBUG,
                     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
                     )
@@ -84,7 +84,7 @@ class Fight(lab_5_copy.Fight):
     '''
     fight
     '''
-    @logged(TooStrong, 'files')
+    @logged(TooStrong, 'file')
     def is_attack_diff(self, max_differance_in_attack):
         '''
         check if fight can start 
@@ -108,7 +108,7 @@ class Fighter(lab_5_copy.Fighter):
     '''
     fighter
     '''
-    @logged(HealthBeloveZero, 'files')
+    @logged(HealthBeloveZero, 'file')
     def get_health_check(self):
         '''
         health check is it below zero
@@ -117,7 +117,7 @@ class Fighter(lab_5_copy.Fighter):
             raise HealthBeloveZero
         return 'self.__health'
 
-@logged(TooHugeTIMETOSLEEP, 'console')
+@logged(TooHugeTIMETOSLEEP, 'file')
 def time_to_sleep_check(value):
     '''
     max time to sleep
@@ -131,5 +131,4 @@ fighter4 = Fighter('Usyk', -20, 20)
 fighter5 = Fighter('Fury', 50, 60)
 fighter6 = Fighter('Joshua', 100, 65)
 saudi_arabia = Fight(fighter4, fighter5)
-time_to_sleep_check(2)
-fighter4.get_health_check()
+saudi_arabia.is_health_diff(20)

@@ -1,0 +1,28 @@
+2023-12-12 14:18:37,460 - root - ERROR - <class '__main__.TooHugeTIMETOSLEEP'>
+Traceback (most recent call last):
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 23, in inner
+    func(*args, **kwargs)
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 126, in time_to_sleep_check
+    raise TooHugeTIMETOSLEEP(value)
+TooHugeTIMETOSLEEP: 2 sec is too slow, code will be going for too much time
+2023-12-12 14:18:37,462 - root - ERROR - <class '__main__.HealthBeloveZero'>
+Traceback (most recent call last):
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 23, in inner
+    func(*args, **kwargs)
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 117, in get_health_check
+    raise HealthBeloveZero
+HealthBeloveZero: Health returned belove zero
+2023-12-12 14:19:18,311 - root - ERROR - <class '__main__.TooStrong'>
+Traceback (most recent call last):
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 23, in inner
+    func(*args, **kwargs)
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 94, in is_attack_diff
+    raise TooStrong(max_differance_in_attack)
+TooStrong: Your opponen has higher attack on more than 20                    points, the fight will be not fair 
+2023-12-12 14:19:28,844 - root - ERROR - <class '__main__.TooHealthy'>
+Traceback (most recent call last):
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 23, in inner
+    func(*args, **kwargs)
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 103, in is_health_diff
+    raise TooHealthy(max_differance_in_health)
+TooHealthy: Your opponen has higher health on more than 20                    points, the fight will be not fair 
