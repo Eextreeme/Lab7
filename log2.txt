@@ -1,0 +1,16 @@
+INFO:root:health diffarance 70.0 points is ok the fight will be
+ERROR:root:<class '__main__.TooStrong'>
+Traceback (most recent call last):
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 21, in inner
+    func(*args, **kwargs)
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 94, in is_attack_good
+    raise TooStrong(max_differance_in_attack)
+TooStrong: Your opponen has higher attack on more than 10                    points, the fight will be not fair 
+ERROR:root:<class '__main__.HealthBeloveZero'>
+Traceback (most recent call last):
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 21, in inner
+    func(*args, **kwargs)
+  File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 113, in get_health_check
+    raise HealthBeloveZero
+HealthBeloveZero: Health returned belove zero
+INFO:root:Code will be run comfotly

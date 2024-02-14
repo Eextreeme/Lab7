@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2023-12-11 12:17:28,058 - root - ERROR - <class '__main__.HealthBeloveZero'>
 Traceback (most recent call last):
   File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 23, in inner
@@ -12,3 +13,7 @@ Traceback (most recent call last):
   File "/Users/prabwa/Politech/lab_7/Lab7/exepting.py", line 117, in get_health_check
     raise HealthBeloveZero
 HealthBeloveZero: Health returned belove zero
+=======
+INFO:root:Code will be run comfotly
+INFO:root:attack 5.0 points is ok the fight will be
+>>>>>>> 81864f163457420a5798365072a305cca7f705c5
